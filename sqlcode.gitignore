@@ -1,0 +1,6 @@
+with low_sal
+as
+(select EMPLOYEE_ID,SALARY,dense_rank() over (order by salary) as rnk from employees )
+select EMPLOYEE_ID,salary from low_sal 
+where low_sal.rnk = n
+**\\ n = NUMBER OF YOUR ORDER LIKE 2ND ,3RD ETC.
